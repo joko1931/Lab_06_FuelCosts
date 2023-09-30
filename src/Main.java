@@ -8,6 +8,8 @@ public class Main
         double totalGallons = 0;
         double gallonPrice = 0;
         double fuelEfficiency = 0;
+        double hundredMilesGallons = 0;
+        double priceHundredMiles = 0;
         String trash = "";
         boolean totalDone = false;
         boolean priceDone = false;
@@ -30,10 +32,14 @@ public class Main
                         do
                         {
                             System.out.println("Please enter miles per gallon: ");
-                            if (in.hasNextDouble()) {
+                            if (in.hasNextDouble())
+                            {
                                 fuelEfficiency = in.nextDouble();
                                 fuelDone = true;
-                                
+                                hundredMilesGallons = 100 / fuelEfficiency;
+                                priceHundredMiles = hundredMilesGallons * gallonPrice;
+                                System.out.println("The car takes " + hundredMilesGallons + " gallons to go 100 miles. Therefore, it would cost " + priceHundredMiles + "$ per hundred miles driven.");
+                                System.out.println("The car can drive " + totalGallons * fuelEfficiency + " with its current fuel.");
                             }
                             else
                             {
